@@ -5,28 +5,31 @@ function fillCredentials() {
         let username = res.username;
         let password = res.password;
 
-        // Get the username and password fields
-        let usernameField = document.getElementById("USER_ID");
-        let passwordField = document.getElementById("USER_PASSWORD");
+        // Check if the username and password are not empty
+        if (username !== "" && password !== "") {
+            // Get the username and password fields
+            let usernameField = document.getElementById("USER_ID");
+            let passwordField = document.getElementById("USER_PASSWORD");
 
-        // Check if the fields exist
-        if (usernameField && passwordField) {
-            // Fill the username field if it's empty
-            if (usernameField.value === "") {
-                usernameField.value = username;
-            }
+            // Check if the fields exist
+            if (usernameField && passwordField) {
+                // Fill the username field if it's empty
+                if (usernameField.value === "") {
+                    usernameField.value = username;
+                }
 
-            // Fill the password field if it's empty
-            if (passwordField.value === "") {
-                passwordField.value = password;
-            }
-            console.log(usernameField.value + " " + passwordField.value);
-        } else {
-            // If the fields do not exist, try again in 100ms
-            setTimeout(() => {
-                fillCredentials();
+                // Fill the password field if it's empty
+                if (passwordField.value === "") {
+                    passwordField.value = password;
+                }
+                console.log(usernameField.value + " " + passwordField.value);
                 clickPortalLoginButton();
-            }, 100);
+            } else {
+                // If the fields do not exist, try again in 100ms
+                setTimeout(() => {
+                    fillCredentials();
+                }, 100);
+            }
         }
     });
 }
@@ -34,18 +37,12 @@ function fillCredentials() {
 // Function that clicks the login button of the portal page
 function clickPortalLoginButton() {
     // Get all input elements
-    let inputs = document.getElementsByTagName("input");
+    let portalLoginButton = document.querySelector('input[type="button"]');
 
     // Check if there are any input elements
-    if (inputs) {
-        // Loop through all input elements
-        for (let i = 0; i < inputs.length; i++) {
-            // If this is the login button, click it
-            if (inputs[i].value.trim() === "Login") {
-                inputs[i].click();
-                break;
-            }
-        }
+    if (portalLoginButton) {
+        // Click the button
+        portalLoginButton.click();
     } else {
         // If there are no input elements, try again in 100ms
         setTimeout(clickPortalLoginButton, 100);
@@ -55,12 +52,12 @@ function clickPortalLoginButton() {
 // Function that clicks the login button of CLE
 function clickCLELoginButton() {
     // Get the login button
-    let loginButton = document.getElementById("loginsaml");
+    let CLELoginButton = document.getElementById("loginsaml");
 
     // Check if the button exists
-    if (loginButton) {
+    if (CLELoginButton) {
         // Click the button
-        loginButton.click();
+        CLELoginButton.click();
     } else {
         // If the button does not exist, try again in 100ms
         setTimeout(clickCLELoginButton, 100);
@@ -68,7 +65,6 @@ function clickCLELoginButton() {
 }
 
 function runFunctions() {
-    console.log("runFunctions called");
     // Check the current page URL
     if (window.location.href.includes("ou-idp.auth.osaka-u.ac.jp/idp/")) {
         fillCredentials();
@@ -76,8 +72,6 @@ function runFunctions() {
         clickCLELoginButton();
     }
 }
-
-console.log("Script executed");
 
 // Call the appropriate function when the page loads
 if (document.readyState === "complete" || 

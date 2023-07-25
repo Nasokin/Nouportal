@@ -1,16 +1,14 @@
-console.log("Options loaded");
-
 // Set default values for testing
-document.getElementById("username").value = "testname";
-document.getElementById("password").value = "testpass";
+document.getElementById("USER_ID").value = "";
+document.getElementById("USER_PASSWORD").value = "";
 
 document.getElementById("settings-form").addEventListener("submit", function(event) {
   // Prevent the form from submitting
   event.preventDefault();
 
   // Get the username and password
-  let username = document.getElementById("username").value;
-  let password = document.getElementById("password").value;
+  let username = document.getElementById("USER_ID").value;
+  let password = document.getElementById("USER_PASSWORD").value;
 
   console.log("Username: " + username + ", Password: " + password);  
 
@@ -25,14 +23,6 @@ document.getElementById("settings-form").addEventListener("submit", function(eve
     message.textContent = "Saved successfully!";
     document.body.appendChild(message);
 
-    // Get and log the stored values
     return browser.storage.sync.get(["username", "password"]);
   })
-  .then((res) => {
-    console.log("Stored username: " + res.username);
-    console.log("Stored password: " + res.password);
-  })
-  .catch((error) => {
-    console.log(`Error: ${error}`);
-  });
 });

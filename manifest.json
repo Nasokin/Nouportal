@@ -1,21 +1,20 @@
 {
   "manifest_version": 2,
   "name": "Nouportal",
-  "version": "0.0.8",
+  "version": "1.0.0",
 
-  "description": "OU Portal Autofill",
+  "description": "OU Portal Lifesaver",
 
   "permissions": [
-    "storage",
-    "<all_urls>"
+    "storage"
   ],
 
   "browser_action": {
     "default_popup": "options.html",
     "default_icon": {
-      "16": "logout.png",
-      "48": "logout.png",
-      "128": "logout.png"
+      "16": "logout-16.png",
+      "48": "logout-48.png",
+      "128": "logout-128.png"
     }
   },
 
@@ -23,8 +22,7 @@
     {
       "matches": [
         "https://ou-idp.auth.osaka-u.ac.jp/idp/*",
-        "https://www.cle.osaka-u.ac.jp/*",
-        "https://koan.osaka-u.ac.jp/*"
+        "https://www.cle.osaka-u.ac.jp/*"
       ],
       "js": ["nouportal.js"]
     }
@@ -32,7 +30,7 @@
 
   "options_ui": {
     "page": "options.html",
-    "browser_style": true
+    "open_in_tab": false
   },
 
   "browser_specific_settings": {
