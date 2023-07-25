@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Nouportal",
+  "version": "0.0.3",
+
+  "description": "Autofill",
+
+  "icons": {
+    "48": "logout.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://ou-idp.auth.osaka-u.ac.jp/idp/*",
+        "https://www.cle.osaka-u.ac.jp/*"
+      ],
+      "js": ["nouportal.js"]
+    }
+  ],
+
+  "permissions": [
+      "storage"
+  ],
+
+  "options_ui": {
+    "page": "options.html"
+  }  
+}
