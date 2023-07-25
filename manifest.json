@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Nouportal",
-  "version": "1.0.0",
+  "version": "1.0.1",
 
   "description": "OU Portal Lifesaver",
 
@@ -30,7 +30,7 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "boxision@gmail.com"
+      "id": "nouportal@nasokin.github.com"
     }
   }
 }
