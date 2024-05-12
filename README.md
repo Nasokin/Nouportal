@@ -1,5 +1,6 @@
 # Nouportal
-A lifesaving Firefox Add-on that does what OU's portal and CLE should have done in the first place: Autofill login.
+A lifesaving Firefox add-on that autofills your username and login in the OU Portal and CLE. 🤡
 
-## 25/07/2023 Update
-Probably works. Shirankedo.
+
+## 2023-05-27 Update
+Signed and probably works. 知らんけど。
